@@ -14,6 +14,32 @@
 
 <hr>
 
+<form action="/modify_actor/<%= @the_actor.id %>" method="post">
+  <div>
+    <label for="name_field">Name</label>
+    <input id="name_field" type="text" name="the_name" value="<%= @the_actor.name %>">
+  </div>
+
+  <div>
+    <label for="dob_field">Dob</label>
+    <input id="dob_field" type="date" name="the_dob" value="<%= @the_actor.dob %>">
+  </div>
+
+  <div>
+    <label for="bio_field">Bio</label>
+    <input id="bio_field" type="text" name="the_bio" value="<%= @the_actor.bio %>">
+  </div>
+
+  <div>
+   <label for="image_field">Image</label>
+    <input id="image_field" type="text" name="the_image" value="<%= @the_actor.image %>">
+  </div>
+
+<button>Update actor</button>
+</form>
+
+<hr>
+
 <dl>
   <dt>
     Name
