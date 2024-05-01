@@ -14,4 +14,23 @@ class ActorsController < ApplicationController
       
     render({ :template => "actor_templates/show" })
   end
+
+  def create
+    # Retrieve user's inputs from params
+     # params hash: 
+    # Create a record in the actor table
+    a = Actor.new
+
+    # Populate each column with the user input
+    a.name = params.fetch("the_name")
+    a.dob = params.fetch("the_dob")
+    a.bio = params.fetch("the_bio")
+    a.image = params.fetch("the_image")
+    
+    # Save
+    a.save
+
+    # Redirect the user back to the /actors URL
+    redirect_to("/actors", allow_other_host: true)
+  end
 end
