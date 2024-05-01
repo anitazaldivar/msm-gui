@@ -71,6 +71,6 @@ class MoviesController < ApplicationController
     the_movie.save
 
     # Redirect to movie details page
-    redirect_to("movies/m_id")
+    redirect_to("/movies/#{the_movie.id}")
   end
 end
