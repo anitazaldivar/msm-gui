@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get("/directors/:path_id", { :controller => "directors", :action => "show" })
   post("/insert_director", { :controller => "directors", :action => "create" })
   get("/delete_director/:an_id", { :controller => "directors", :action => "destroy" })
+  post("/modify_director/:an_id", { :controller => "directors", :action => "update" })
 
   get("/movies", { :controller => "movies", :action => "index" })
   get("/movies/:path_id", { :controller => "movies", :action => "show" })
