@@ -36,4 +36,24 @@ class DirectorsController < ApplicationController
 
     render({ :template => "director_templates/eldest" })
   end
+
+  def create
+    # Retrieve user's inputs from params
+     # params hash: {"the_title"=>"1", "the_year"=>"3", "the_duration"=>"2", "the_description"=>"3", "the_image"=>"3", "the_director_id"=>"3"}
+
+    # Create a record in the director table
+    d = Director.new
+
+    # Populate each column with the user input
+    d.name = params.fetch("the_name")
+    d.dob = params.fetch("the_dob")
+    d.bio = params.fetch("the_bio")
+    d.image = params.fetch("the_image")
+    
+    # Save
+    d.save
+
+    # Redirect the user back to the /movies URL
+    redirect_to("/directors", allow_other_host: true)
+  end
 end
