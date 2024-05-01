@@ -33,4 +33,16 @@ class ActorsController < ApplicationController
     # Redirect the user back to the /actors URL
     redirect_to("/actors", allow_other_host: true)
   end
+
+  def destroy
+    the_id = params.fetch("an_id")
+
+    matching_records = Actor.where({ :id => the_id})
+
+    the_actor = matching_records.at(0)
+
+    the_actor.destroy
+
+    redirect_to("/actors")
+  end
 end
